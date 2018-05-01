@@ -27,13 +27,31 @@ public class run : MonoBehaviour {
     double power=100;
     private void FixedUpdate()
     {
-        rb.AddForce(new Vector3(0, -150));
+        rb.AddForce(new Vector3(0, -300));
         if (isGrounded)
             rb.velocity = new Vector3(0, 0, 12);
         if (Input.GetButton("Horizontal") && Input.GetAxisRaw("Horizontal") < 0)
-            rb.velocity= new Vector3(-3, 0, 12);
+            rb.velocity= new Vector3(-2, 0, 12);
         if (Input.GetButton("Horizontal") && Input.GetAxisRaw("Horizontal") > 0)
-            rb.velocity= new Vector3(3, 0, 12);
+            rb.velocity= new Vector3(2, 0, 12);
+#if UNITY_IPHONE || UNITY_ANDROID
+        Rect left, right;
+        if(Input.touchCount>0)
+        {
+            {
+                right = new Rect(new Vector2(0, 0), new Vector2(Screen.width / 2, Screen.height));
+                left= new Rect(new Vector2(Screen.width/2,0), new Vector2(Screen.width / 2, Screen.height));
+            }
+            if (left.Contains(Input.GetTouch(0).position))
+            {
+                rb.velocity = new Vector3(3, 0, 12);
+            }else
+                if(right.Contains(Input.GetTouch(0).position))
+            {
+                rb.velocity = new Vector3(-3, 0, 12);
+            }
+        }
+#endif
         if(isGrounded && !crash)
         score += 1;
         if (crash)
