@@ -1,6 +1,6 @@
 WindowsStandalone
 PlayerPath?
-C:/Users/user/Documents/3DGame1/3DGame1.exe
+C:/Users/user/Documents/3DGame1/AppPackages/3DGame1.exe
 SceneListBegin?
 Assets/MainMenu.unity
 Assets/Scene1.unity
