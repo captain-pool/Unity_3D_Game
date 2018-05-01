@@ -12,7 +12,7 @@ public class Extend : MonoBehaviour {
     private int count = 0,r=2;
     private void OnTriggerEnter(Collider other)
     {
-        platform.transform.position += new Vector3(0, 0, 25);
+        platform.transform.position += new Vector3(0, 0, 20);
         
         float z = guide.transform.position.z;
 
