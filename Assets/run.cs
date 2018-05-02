@@ -27,7 +27,7 @@ public class run : MonoBehaviour {
     double power=100;
     private void FixedUpdate()
     {
-        rb.AddForce(new Vector3(0, -300));
+        rb.AddForce(new Vector3(0, -700));
         if (isGrounded)
             rb.velocity = new Vector3(0, 0, 12);
         if (Input.GetButton("Horizontal") && Input.GetAxisRaw("Horizontal") < 0)
@@ -56,8 +56,9 @@ public class run : MonoBehaviour {
         score += 1;
         if (crash)
         {
-            power -= 0.4;
-        }
+            power -= 1.1;
+        }else if (power < 95)
+            power += 0.01;
         if ((int)power <= 0)
             exitGame();
         slider.value = (int)power;
