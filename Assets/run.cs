@@ -28,7 +28,8 @@ public class run : MonoBehaviour {
     private void FixedUpdate()
     {
         rb.AddForce(new Vector3(0, -700));
-        if (isGrounded)
+        if (!isGrounded)
+            return;
             rb.velocity = new Vector3(0, 0, 12);
         if (Input.GetButton("Horizontal") && Input.GetAxisRaw("Horizontal") < 0)
             rb.velocity= new Vector3(-2, 0, 12);
